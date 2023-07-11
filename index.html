@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violation Search</title>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Violation Search</h1>
+    </header>
+    <section class="centered">
+      <form id="searchForm">
+        <label for="yearInput">Year:</label>
+        <input type="number" id="yearInput" name="year" min="1900" max="2099" required />
+        <br />
+        <label for="inspectorSelect">Inspector ID:</label>
+        <select id="inspectorSelect" name="inspectorId">
+          <option value="BL00912">BL00912</option>
+          <option value="BL00831">BL00831</option>
+          <option value="BL00904">BL00904</option>
+          <option value="BL00708">BL00708</option>
+          <option value="BL00957">BL00957</option>
+          <option value="BL00950">BL00950</option>
+          <option value="BL00685">BL00685</option>
+          <option value="BL00959">BL00959</option>
+          <option value="BL00971">BL00971</option>
+          <option value="BL00896">BL00896</option>
+        </select>
+        <br />
+        <label>Status:</label>
+        <label for="openStatus">Open</label>
+        <input type="radio" id="openStatus" name="status" value="open" checked />
+        <label for="closedStatus">Closed</label>
+        <input type="radio" id="closedStatus" name="status" value="closed" />
+        <br />
+        <label>Show:</label>
+        <input type="checkbox" id="descriptionCheckbox" name="showDescription" />
+        <label for="descriptionCheckbox">Violation Description</label>
+        <input type="checkbox" id="commentsCheckbox" name="showComments" />
+        <label for="commentsCheckbox">Inspector Comments</label>
+        <input type="checkbox" id="ordinanceCheckbox" name="showOrdinance" />
+        <label for="ordinanceCheckbox">Violation Ordinance</label>
+        <input type="checkbox" id="bureauCheckbox" name="showBureau" />
+        <label for="bureauCheckbox">Department Bureau</label>
+        <br />
+        <button type="submit" onsubmit="handleSearch()">Search</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+    <main class="centered">
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Violation Code</th>
+            <th>Violation Location</th>
+            <th>Last Modified Date</th>
+            <th>Address</th>
+            <th class="hidden">Violation Description</th>
+            <th class="hidden">Inspector Comments</th>
+            <th class="hidden">Violation Ordinance</th>
+            <th class="hidden">Department Bureau</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+  </body>
+</html>
